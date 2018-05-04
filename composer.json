@@ -1,0 +1,17 @@
+{
+  "name": "wpscholar/wp-trait-post-excerpt",
+  "description": "A trait that adds a method to a WordPress model for the post excerpt.",
+  "type": "library",
+  "license": "GPL-2.0+",
+  "authors": [
+    {
+      "name": "Micah Wood",
+      "email": "micah@wpscholar.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "wpscholar\\WordPress\\Traits\\": ""
+    }
+  }
+}
