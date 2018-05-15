@@ -6,8 +6,6 @@ namespace wpscholar\WordPress\Traits;
  * Class PostExcerpt
  *
  * @package wpscholar\WordPress\Traits
- *
- * @property \WP_Post $post
  */
 trait PostExcerpt {
 
@@ -17,7 +15,22 @@ trait PostExcerpt {
 	 * @return string
 	 */
 	public function postExcerpt() {
-		return get_the_excerpt( $this->post );
+
+		global $post;
+
+		// Backup global post
+		$save_post = $post;
+
+		// Set global post
+		$post = $this->post;
+
+		// Fetch the excerpt
+		$excerpt = get_the_excerpt( $this->post );
+
+		// Restore original global post
+		$post = $save_post;
+
+		return $excerpt;
 	}
 
 }
