@@ -16,19 +16,14 @@ trait PostExcerpt {
 	 */
 	public function postExcerpt() {
 
-		global $post;
-
-		// Backup global post
-		$save_post = $post;
-
-		// Set global post
-		$post = $this->post;
+		// Setup global post data
+		setup_postdata( $this->post );
 
 		// Fetch the excerpt
 		$excerpt = get_the_excerpt( $this->post );
 
-		// Restore original global post
-		$post = $save_post;
+		// Restore original global post data
+		wp_reset_postdata();
 
 		return $excerpt;
 	}
